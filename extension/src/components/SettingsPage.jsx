@@ -47,7 +47,7 @@ export default function SettingsPage({
     >
       <header className="settings-head">
         <div className="settings-title">
-          <img src="aurora.png" alt="" className="settings-logo" draggable="false" />
+          <img src="logo.png" alt="" className="settings-logo" draggable="false" />
           <div>
             <h1>Settings</h1>
             <p>Aurora Browser</p>
@@ -134,7 +134,7 @@ export default function SettingsPage({
           {tab === 'about' && (
             <div className="settings-section">
               <h2>About</h2>
-              <img src="aurora.png" alt="Aurora Browser" className="about-logo" draggable="false" />
+              <img src="logo.png" alt="Aurora Browser" className="about-logo" draggable="false" />
               <p className="about-name">Aurora Browser</p>
               <p className="about-desc">
                 A fast, private, auto-updating browser built on Chromium.

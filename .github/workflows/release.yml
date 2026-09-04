@@ -264,32 +264,32 @@ jobs:
       contents: write
     steps:
       - name: Download .deb
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: linux-deb
 
       - name: Download AppImage
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: appimage
 
       - name: Download RPM
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: linux-rpm
 
       - name: Download Windows .exe
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: windows-exe
 
       - name: Download Arch PKGBUILD
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: arch-pkgbuild
 
       - name: Download macOS
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: macos
 

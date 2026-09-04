@@ -9,8 +9,9 @@ if [ -z "${VERSION:-}" ] && [ -f "$ROOT/VERSION" ]; then
 fi
 VERSION="${VERSION:-2.0.6}"
 
-# Resolve icon (new assets/ location with fallback)
-ICON_SRC="$ROOT/assets/icons/aurora.png"
+# Resolve icon — canonical is assets/icons/logo.png (fallback to aurora.png for compat)
+ICON_SRC="$ROOT/assets/icons/logo.png"
+[ -f "$ICON_SRC" ] || ICON_SRC="$ROOT/assets/icons/aurora.png"
 [ -f "$ICON_SRC" ] || ICON_SRC="$ROOT/aurora.png"
 
 # Build React extension if node_modules exists

@@ -106,7 +106,7 @@ Artifacts land in `build/` (and deb copy at repo root). See [`packages/linux/REA
 
 ```
 VERSION                                           # single source of truth
-assets/icons/aurora.png                           # canonical icon
+assets/icons/logo.png                             # canonical icon (aurora.png kept for compat)
 extension/        React new-tab (Vite). Manifest V3, newtab override.
 packages/linux/common/     Shared launch.sh, update.sh, update.conf, setup-sandbox.sh
 packages/linux/debian/     Debian packaging

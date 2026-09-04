@@ -9,7 +9,9 @@ if [ -z "${VERSION:-}" ] && [ -f "$ROOT/VERSION" ]; then
 fi
 VERSION="${VERSION:-2.0.6}"
 
-ICON_SRC="$ROOT/assets/icons/aurora.png"
+# Canonical icon is assets/icons/logo.png (fallback to aurora.png for compat)
+ICON_SRC="$ROOT/assets/icons/logo.png"
+[ -f "$ICON_SRC" ] || ICON_SRC="$ROOT/assets/icons/aurora.png"
 [ -f "$ICON_SRC" ] || ICON_SRC="$ROOT/aurora.png"
 
 echo "==> Building Aurora Browser AppImage (version $VERSION) ..."

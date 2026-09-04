@@ -60,8 +60,9 @@ package() {
 
   local common="${root}/linux/common"
   [ -d "${common}" ] || common="${root}/packages/linux/common"
-  local asset_icon="${root}/aurora.png"
+  local asset_icon="${root}/assets/icons/logo.png"
   [ -f "${asset_icon}" ] || asset_icon="${root}/assets/icons/aurora.png"
+  [ -f "${asset_icon}" ] || asset_icon="${root}/aurora.png"
 
   # Guard: fail fast if repo layout is unexpected
   if [ ! -f "${common}/launch.sh" ]; then

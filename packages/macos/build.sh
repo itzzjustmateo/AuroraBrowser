@@ -8,7 +8,9 @@ if [ -z "${VERSION:-}" ] && [ -f "$ROOT/VERSION" ]; then
 fi
 VERSION="${VERSION:-2.0.6}"
 
-ICON_SRC="$ROOT/assets/icons/aurora.png"
+# Canonical icon is assets/icons/logo.png (fallback to aurora.png for compat)
+ICON_SRC="$ROOT/assets/icons/logo.png"
+[ -f "$ICON_SRC" ] || ICON_SRC="$ROOT/assets/icons/aurora.png"
 [ -f "$ICON_SRC" ] || ICON_SRC="$ROOT/aurora.png"
 
 echo "=========================================="
@@ -119,7 +121,9 @@ chmod +x "$APP/Contents/MacOS/launch-aurora"
 # Copy extension (exclude node_modules: dev-only build deps)
 rsync -a --exclude 'node_modules' "$ROOT/extension/" "$APP/Contents/Resources/extension/"
 if [ -f "$ICON_SRC" ]; then
-  cp "$ICON_SRC" "$APP/Contents/Resources/aurora.png"
+  cp "$ICON_SRC" "$APP/Contents/Resources/logo.png"
+  # legacy compat: also keep aurora.png
+  cp "$ICON_SRC" "$APP/Contents/Resources/aurora.png" 2>/dev/null || true
 fi
 
 # version + update config
@@ -128,7 +132,7 @@ echo 'REPO="Draftiermovie66/Aurora-Browser"' > "$APP/Contents/Resources/update.c
 cp "$DIR/update.sh" "$APP/Contents/Resources/update.sh"
 chmod +x "$APP/Contents/Resources/update.sh"
 
-# Generate a real .icns from aurora.png using iconutil (macOS only).
+# Generate a real .icns from logo.png (fallback aurora.png) using iconutil (macOS only).
 ICONSET="$TMP/AppIcon.iconset"
 mkdir -p "$ICONSET"
 for size in 16 32 64 128 256 512; do

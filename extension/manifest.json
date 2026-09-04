@@ -9,7 +9,7 @@
   "permissions": ["storage"],
   "web_accessible_resources": [
     {
-      "resources": ["aurora.png"],
+      "resources": ["logo.png", "aurora.png"],
       "matches": ["<all_urls>"]
     }
   ]

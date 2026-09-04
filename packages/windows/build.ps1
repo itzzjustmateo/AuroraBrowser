@@ -31,11 +31,14 @@ REPO="Draftiermovie66/Aurora-Browser"
 
 Copy-Item -Path (Join-Path $PSScriptRoot "update.ps1") -Destination (Join-Path $BUILD "update.ps1")
 
-# Copy logo (new assets/ with fallback)
-$LOGO = Join-Path $ROOT "assets\icons\aurora.png"
+# Copy logo — canonical is assets/icons/logo.png (fallback to aurora.png for compat)
+$LOGO = Join-Path $ROOT "assets\icons\logo.png"
+if (-not (Test-Path $LOGO)) { $LOGO = Join-Path $ROOT "assets\icons\aurora.png" }
 if (-not (Test-Path $LOGO)) { $LOGO = Join-Path $ROOT "aurora.png" }
 if (Test-Path $LOGO) {
-  Copy-Item -Path $LOGO -Destination (Join-Path $BUILD "aurora.png")
+  Copy-Item -Path $LOGO -Destination (Join-Path $BUILD "logo.png")
+  # legacy compat: also keep aurora.png
+  Copy-Item -Path $LOGO -Destination (Join-Path $BUILD "aurora.png") -ErrorAction SilentlyContinue
 }
 
 # Create version file

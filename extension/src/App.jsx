@@ -39,9 +39,9 @@ function faviconUrl(url) {
 
 function getLogoSrc() {
   if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getURL) {
-    return chrome.runtime.getURL('aurora.png');
+    return chrome.runtime.getURL('logo.png');
   }
-  return 'aurora.png';
+  return 'logo.png';
 }
 
 function getReleaseNotes() {

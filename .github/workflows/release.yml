@@ -230,9 +230,12 @@ jobs:
           mkdir -p build/aurora-browser-${VERSION}-win/profile
 
           cp -r extension/dist build/aurora-browser-${VERSION}-win/extension/dist
-          cp extension/aurora.png build/aurora-browser-${VERSION}-win/extension/aurora.png
+          # canonical logo.png (fallback to aurora.png for compat)
+          if [ -f extension/logo.png ]; then cp extension/logo.png build/aurora-browser-${VERSION}-win/extension/logo.png; elif [ -f extension/aurora.png ]; then cp extension/aurora.png build/aurora-browser-${VERSION}-win/extension/logo.png; fi
+          cp extension/logo.png build/aurora-browser-${VERSION}-win/extension/aurora.png 2>/dev/null || cp extension/aurora.png build/aurora-browser-${VERSION}-win/extension/aurora.png 2>/dev/null || true
           cp packages/windows/update.ps1 build/aurora-browser-${VERSION}-win/
-          cp assets/icons/aurora.png build/aurora-browser-${VERSION}-win/
+          if [ -f assets/icons/logo.png ]; then cp assets/icons/logo.png build/aurora-browser-${VERSION}-win/logo.png; elif [ -f assets/icons/aurora.png ]; then cp assets/icons/aurora.png build/aurora-browser-${VERSION}-win/logo.png; fi
+          cp assets/icons/logo.png build/aurora-browser-${VERSION}-win/aurora.png 2>/dev/null || cp assets/icons/aurora.png build/aurora-browser-${VERSION}-win/aurora.png 2>/dev/null || true
           echo 'REPO="Draftiermovie66/Aurora-Browser"' > build/aurora-browser-${VERSION}-win/update.conf
           echo "CHROMIUM_VERSION=0" > build/aurora-browser-${VERSION}-win/version.txt
 

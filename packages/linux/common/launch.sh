@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT="$(readlink -f "$0" 2>/dev/null || realpath "$0" 2>/dev/null || echo "$0")"
+DIR="$(cd "$(dirname "$SCRIPT")" && pwd)"
 UPDATE_CHECK="$DIR/profile/.last-update-check"
+mkdir -p "$(dirname "$UPDATE_CHECK")"
 if [ ! -f "$UPDATE_CHECK" ] || [ "$(find "$UPDATE_CHECK" -mtime +0)" ]; then
   touch "$UPDATE_CHECK"
   bash "$DIR/update.sh" --quiet >/dev/null 2>&1 &

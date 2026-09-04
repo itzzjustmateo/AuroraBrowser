@@ -148,7 +148,7 @@ File: `windows/src/AuroraBrowser.cs`
 - **Code blocks:** Fenced with language tag: ````bash`, ````js`, ````powershell`
 - **Lines:** Wrap at ~100 chars where reasonable; don’t break URLs or code.
 - **Links:** Relative for in-repo: `[linux README](linux/README.md)`, absolute for external.
-- **Images:** Alt text required: `![Aurora New Tab](aurora.png)`
+- **Images:** Alt text required: `![Aurora New Tab](logo.png)`
 - **Terminology:** Consistent:
   - Product: **Aurora Browser** (capitalized)
   - Engine: **Chromium engine** / `chrome-linux/` (internal path)

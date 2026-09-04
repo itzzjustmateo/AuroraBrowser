@@ -1,7 +1,7 @@
 # Aurora Browser
 
 <p align="center">
-  <img src="assets/icons/aurora.png" alt="Aurora Browser" width="128" />
+  <img src="assets/icons/logo.png" alt="Aurora Browser" width="128" />
 </p>
 
 <p align="center">
@@ -43,7 +43,7 @@
 
 > New Tab page is served from `extension/dist/index.html` and overridden via `chrome_url_overrides.newtab` in `extension/manifest.json`.
 
-![Aurora New Tab](assets/icons/aurora.png)
+![Aurora New Tab](assets/icons/logo.png)
 
 ---
 
@@ -150,7 +150,7 @@ Updates are pulled from [GitHub Releases](https://github.com/Draftiermovie66/Aur
 AuroraBrowser/
 ├── VERSION                  # Single source of truth for version (e.g. 2.0.6)
 ├── assets/
-│   └── icons/aurora.png     # App icon (canonical; aurora.png at root kept for compat)
+│   └── icons/logo.png       # App icon (canonical; aurora.png kept for compat)
 ├── extension/               # React New Tab (Vite + React 18 + Framer Motion)
 │   ├── src/                 # App.jsx, components/, search.js, shortcuts.js, theme.js
 │   ├── dist/                # Built new-tab (generated, not committed)
@@ -265,7 +265,7 @@ npm run preview  # preview built dist
 | File | Purpose |
 |---|---|
 | `VERSION` | Single source of truth — all builds read this if `$VERSION` not set |
-| `assets/icons/aurora.png` | Canonical app icon |
+| `assets/icons/logo.png` | Canonical app icon (fallback `aurora.png` for compat) |
 | `packages/linux/common/update.conf` | GitHub repo + update channel config |
 | `packages/linux/common/launch.sh` | Chromium flags + self-contained `--user-data-dir` |
 | `packages/macos/entitlements.plist` | macOS sandbox entitlements |
